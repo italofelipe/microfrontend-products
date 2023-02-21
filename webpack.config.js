@@ -1,4 +1,5 @@
 const HTMLWebpackPlugin = require("html-webpack-plugin");
+const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = {
 	mode: "development",
@@ -16,10 +17,19 @@ module.exports = {
 	},
 	plugins: [
 		new HTMLWebpackPlugin({
-			template: "public/index.html"
+			template: "./public/index.html"
+		}),
+		new ModuleFederationPlugin({
+			name: "products",
+			filename: "remoteEntry.js",
+			exposes: {
+				"./ProductsIndex": "./src/index"
+			}
 		})
 	],
 	resolve: {
 		extensions: [".ts", ".tsx", ".js"]
 	}
 };
+
+// To access this remote, you should call it in container (host) using products@http://localhost:8081/remoteEntry.ts

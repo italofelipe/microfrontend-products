@@ -8,4 +8,4 @@ for (let i = 0; i < 5; i++) {
 }
 
 document.querySelector("#dev-products")!.innerHTML = products
-console.log(products);
+console.log("Products mfe");
