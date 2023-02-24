@@ -1,4 +1,4 @@
-import {faker} from "@faker-js/faker";
+import { faker } from "@faker-js/faker";
 let products = "";
 
 for (let i = 0; i < 5; i++) {
@@ -7,5 +7,5 @@ for (let i = 0; i < 5; i++) {
 	products += `<div>${name}</div>`;
 }
 
-document.querySelector("#dev-products")!.innerHTML = products
+document.querySelector("#dev-products")!.innerHTML = products;
 console.log("Products mfe");
